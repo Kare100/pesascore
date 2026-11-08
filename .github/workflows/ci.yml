@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+      - name: Build and test
+        run: mvn -B verify
+      - name: Score the three demo statements
+        run: |
+          for p in salaried rider overstretched; do
+            java -jar target/pesascore.jar demo "$p" --out "$p.csv"
+            java -jar target/pesascore.jar score "$p.csv"
+          done
