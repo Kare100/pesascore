@@ -17,6 +17,8 @@ PesaScore reads that statement and returns:
 It is written in plain Java 21 with no runtime dependencies, and is covered by unit and
 API tests.
 
+![PesaScore web page scoring a demo boda boda rider statement: 655, Band C, suggested limit KES 4,000 with the reasons](docs/demo.png)
+
 ```
 ----------------------------------------------------------------
  PesaScore  655 / 850   Band C (Moderate risk)   Confidence: HIGH
